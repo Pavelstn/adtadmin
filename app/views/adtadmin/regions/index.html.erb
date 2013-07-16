@@ -1,0 +1,30 @@
+<h1>Города</h1>
+<%= link_to 'Новый город', new_region_path,  :class => "btn btn-success" %>
+<table>
+  <tr>
+    <th>Активно</th>
+    <th>Название</th>
+    <th>Альт. название</th>
+    <th>Порядок</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @regions.each do |region| %>
+  <tr>
+    <td><%= region.isactive %></td>
+    <td><%= region.name %></td>
+    <td><%= region.alias %></td>
+    <td><%= region.rorder %></td>
+    <td><%= link_to 'Show', region %></td>
+    <td><%= link_to 'Edit', edit_region_path(region) %></td>
+    <td><%= link_to 'Destroy', region, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Новый город', new_region_path,  :class => "btn btn-success" %>
+
+

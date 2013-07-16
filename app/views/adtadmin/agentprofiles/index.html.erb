@@ -1,0 +1,36 @@
+<h1>Listing agentprofiles</h1>
+
+<table>
+  <tr>
+    <th>Region</th>
+    <th>Isactive</th>
+
+    <th>Name</th>
+    <th>Phone</th>
+
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @agentprofiles.each do |agentprofile| %>
+  <tr>
+    <td><%= agentprofile.region.try(:name) %></td>
+    <td><%= agentprofile.isactive %></td>
+
+    <td><%= agentprofile.name %></td>
+    <td><%= agentprofile.phone %></td>
+
+
+  
+    <td><%= link_to 'Show', agentprofile %></td>
+    <td><%= link_to 'Edit', edit_agentprofile_path(agentprofile) %></td>
+    <td><%= link_to 'Destroy', agentprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Agentprofile', new_agentprofile_path %>

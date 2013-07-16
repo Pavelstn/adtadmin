@@ -1,0 +1,20 @@
+<% @news_lists.each do |news_list| %>
+
+ <div class="row">
+ 	<a href="/news/<%= news_list.id %>">
+    <div class="span8">
+    	
+      <h2><%= news_list.title %></h2>
+      <%= news_list.short_text %><br><br>
+      Подробнее >>
+  
+
+    </div>
+    <div class="span4">
+      <img src="<%= news_list.img_url %>" class="news_list_img"> 
+    </div>
+</a>
+  </div>
+<hr>
+
+<% end %>

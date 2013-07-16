@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <b>Aliasname:</b>
+  <%= @partner.aliasname %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @partner.description %>
+</p>
+
+<p>
+  <b>Isactive:</b>
+  <%= @partner.isactive %>
+</p>
+
+<p>
+  <b>Isdelete:</b>
+  <%= @partner.isdelete %>
+</p>
+
+
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %>

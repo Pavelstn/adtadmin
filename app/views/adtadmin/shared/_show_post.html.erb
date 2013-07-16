@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="span12 " itemprop="name"><h1> <%= @post.try(:title) %></h1><hr></div>
+</div> <!-- row -->
+
+<% if @post.image.first.try(:url).blank? %>
+<div class="row">
+	<div class="span8 ">
+		<%= render "adtadmin/shared/post_view/description" %>
+		<h4>Дополнительно:</h4>
+		<%= raw @post.try(:text) %>
+	</div>
+	<div class="span4 ">
+		<%= render "adtadmin/shared/post_view/agents" %>
+	</div>
+</div> <!-- row -->
+<% else %>
+<div class="row">
+	<div class="span8 ">
+		<%= render "adtadmin/shared/post_view/carousel" %>
+		<h4>Дополнительно:</h4>
+		<%= raw @post.try(:text) %>
+	</div>
+	<div class="span4 ">
+		<%= render "adtadmin/shared/post_view/description" %>
+		<%= render "adtadmin/shared/post_view/agents" %>
+	</div>
+</div> <!-- row -->
+<% end %>
+

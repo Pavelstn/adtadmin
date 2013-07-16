@@ -1,0 +1,14 @@
+			<!-- Carousel ================================================== -->
+			<div id="myCarousel" class="carousel slide">
+				<div class="carousel-inner">
+					<% i=0 %>
+					<% @post.image.each do |image| %>
+					<div class="item <% if i==0 %>active <% end %>"  style="background-image: url(<%=image.try(:url) %>)">
+					</div>
+					<% i=i+1 %>
+					<% end %>
+				</div>
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+			<!-- /.carousel -->

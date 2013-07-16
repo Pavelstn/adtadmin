@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  region_id: 1
+  category_id: 1
+  altname: MyString
+  title: MyString
+  text: MyText
+  contact: MyString
+  tags: MyString
+  price: 1.5
+  isactive: false
+  isdelete: false
+  ontop: false
+  imageurl: MyString
+
+two:
+  user_id: 1
+  region_id: 1
+  category_id: 1
+  altname: MyString
+  title: MyString
+  text: MyText
+  contact: MyString
+  tags: MyString
+  price: 1.5
+  isactive: false
+  isdelete: false
+  ontop: false
+  imageurl: MyString

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Region:</b>
+  <%= @agentprofile.region.try(:name) %>
+</p>
+
+<p>
+  <b>Isactive:</b>
+  <%= @agentprofile.isactive %>
+</p>
+
+<p>
+  <b>Isdelete:</b>
+  <%= @agentprofile.isdelete %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @agentprofile.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @agentprofile.phone %>
+</p>
+
+<p>
+  <b>Adress:</b>
+  <%= @agentprofile.adress %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @agentprofile.description %>
+</p>
+
+<p>
+  <b>Photourl:</b>
+  <%= @agentprofile.photourl %>
+</p>
+
+
+<%= link_to 'Edit', edit_agentprofile_path(@agentprofile) %> |
+<%= link_to 'Back', agentprofiles_path %>

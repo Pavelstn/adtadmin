@@ -1,0 +1,198 @@
+
+<%= form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= f.hidden_field :id, :value=> @post.id %>
+
+<div class="row">
+  <div class="span1"><%= f.label :title %></div>
+  <div class="span10"><%= f.text_field :title, :id=>"title_field" %></div>
+  <div class="span1"><button class="btn" type="button" id="compile_title"><i class="icon-refresh"></i></button></div>
+</div>
+<div class="row">
+  <div class="span1"><%= f.label :partner_id %></div>
+  <div class="span3"><%= f.select(:partner_id, Adtadmin::Partner.all.collect { |p| [ p.name, p.id ] }, options ={:prompt => "-Партнер"})%></div>
+
+  <div class="span1"><%= f.label :altname %></div>
+  <div class="span3"><%= f.text_field :altname %></div>
+  
+  <div class="span1"><%= f.label :category_id %></div>
+  <div class="span3"><%= f.select(:category_id, Adtadmin::Category.all.collect { |p| [ p.private_name, p.id ] }, options ={:prompt => "-Категория"} , :id=>"category_field")   %></div>
+</div>
+<div class="row">
+ <div class="span1">Город</div>
+ <div class="span3"><%= f.select(:region_id, Adtadmin::Region.all.collect { |p| [ p.name, p.id ] }, options ={:prompt => "-Выбор региона"})%></div>
+ <div class="span1">Район</div>
+ <div class="span3"><%= f.text_field :district, :id=>"district_field" %></div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="span1">Цена</div>
+  <div class="span2"><%= f.text_field :price, :id=>"price_field" %></div>
+
+  <div class="span1">Площадь</div>
+  <div class="span2"><%= f.text_field :space, :id=>"space_field" %></div>
+
+  <div class="span1">Этаж</div>
+  <div class="span2"><%= f.text_field :floor, :id=>"floor_field" %></div>
+    <div class="span1">
+      <div class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Материал<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li class="material_select">блок</li>
+          <li class="material_select">кирпич</li>
+          <li class="material_select">кирпич-монолит</li>
+          <li class="material_select">монолит</li>
+          <li class="material_select">панель</li>
+        </ul>
+      </div>
+    <!--  <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Материал</a>
+     -->
+     </div>
+  <div class="span2"><%= f.text_field :material, :id=>"material_field" %></div>
+
+
+</div>  
+
+<div class="row">
+  <div class="span1">
+    <div class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Планировка<b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+        <li class="plan_select">изолированная</li>
+        <li class="plan_select">улучшенная</li>
+        <li class="plan_select">студия</li>
+        <li class="plan_select">свободная</li>
+        <li class="plan_select">смежная</li>
+      </ul>
+    </div>
+  </div>
+  <div class="span2"><%= f.text_field :plan, :id=>"plan_field" %></div>
+  <div class="span1">
+    <div class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Состояние помещения</a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel3">
+        <li class="apartmen_select">не требуется ремонт</li>
+        <li class="apartmen_select">евроремонт</li>
+        <li class="apartmen_select">после ремонта</li>
+        <li class="apartmen_select">требуется косметический ремонт</li>
+        <li class="apartmen_select">требуется ремонт</li>
+        <li class="apartmen_select">стяжка+штукатурка</li>
+        <li class="apartmen_select">предчистовая</li>
+        <li class="apartmen_select">под ключ</li>
+        <li class="apartmen_select">требуется частичный ремонт</li>
+        <li class="apartmen_select">частичный ремонт</li>
+
+      </ul>
+    </div>
+    
+  </div>
+  <div class="span2"><%= f.text_field :apartmentstate, :id=>"apartmen_field" %></div>
+  
+    <div class="span1">Год</div>
+  <div class="span1"><%= f.text_field :year, :id=>"year_field" %></div>
+</div>  
+
+<div class="row">
+<div class="span1">Состояние дома</div>
+  <div class="span2"><%= f.text_field :conditionbuilding, :id=>"condition_field" %></div>
+
+  <div class="span1">Балкон</div>
+  <div class="span2"><%= f.check_box :balcony, :id=>"plan_field" %></div>
+
+  <div class="span1">Телефон</div>
+  <div class="span1"><%= f.check_box :phone, :id=>"plan_field" %></div>
+</div>
+<hr>
+<div class="row">
+  <div class="span1">Картинка</div>
+  <div class="span3"><%= f.text_field :imageurl , :id=>"post_imageurl"%></div>
+  <div class="span1">Активно:</div>
+  <div class="span1"><%= f.check_box :isactive %></div>
+  <div class="span2">На главной:</div>
+  <div class="span1"><%= f.check_box :ontop %></div>
+</div>
+<!--
+<div class="row">
+  <div class="span1"><%#= f.label :contact %></div>
+  <div class="span3"><%#= f.text_field :contact, :disabled=>true  %></div>
+
+  <div class="span1"><%#= f.label :tags %></div>
+  <div class="span3"><%#= f.text_field :tags, :disabled=>true  %></div>
+
+  <div class="span1"><%#= f.label :user_id %></div>
+  <div class="span3"><%#= f.number_field :user_id, :disabled=>true %></div> 
+</div>
+-->
+<!----- -->
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Фотографии/картинки
+      </a>
+    </div>
+
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <fieldset>
+          <label>Адрес изображения</label>
+          <input id="imgurl" type="text" placeholder="img url…">        
+          <button id="add_new_img_button" class="btn btn-primary" type="button" >Добавить изображение</button>
+        </fieldset>
+
+        <div class="row">
+          <div class="span12" id="image_thumbinals"></div> 
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!----- -->
+<div class="accordion" id="accordion3">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseAgent">
+        Закрепление агентов
+      </a>
+    </div>
+
+    <div id="collapseAgent" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <fieldset>
+          <label>Агент</label>
+          <select id="all_agents">
+          </select>
+          <button id="add_agent_button" class="btn btn-primary" type="button" >Добавить</button>
+        </fieldset>
+        <div class="row">
+          <div class="span12" id="agent_list"></div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!----- -->
+
+<div class="row">
+  <div class="span12"><%#= f.cktext_area :text, :width => 620, :height => 400 %><%= f.text_area :text, :width => 620, :height => 400, :id=>"text_field" %></div>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="row" id="items_list">
+ <ul class="thumbnails">
+    <% @products.each do |product| %>
+   
+     
+ <!--       <div class="span6" id="items" >
+          <div class="promotion_image" style="background-image: url(<%=  product.small_image %>);">
+          </div>
+          <div class="items_text" >
+            <%= product.category.name%>. <%= product.name %> 
+          </div>
+          <div class="row">
+            <div class="span3">
+              <h1>  <%= product.costs %> р.</h1> 
+            </div>
+            
+            <div class="span2" id="more_btn" >
+              <a class="btn btn-success" href="">Подробнее</a>
+            </div>
+          </div>
+        </div>
+-->
+       
+  <li class="span4">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x200" alt="">
+      <h3>Thumbnail label</h3>
+      <p>Thumbnail caption...</p>
+    </div>
+  </li>
+  ...
+
+
+
+
+
+      
+    <% end %>
+    </ul>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="row" id="items_list">
+<!--
+<table class="table table-condensed">
+  <tr>
+    <th>Регион</th>
+    <th>Картинка</th>
+    <th>Категория</th>
+    <th>Стоимость</th>
+    <th>Заголовок</th>
+  </tr>
+
+<%# @posts.each do |post| %>
+
+  <tr>
+    <td><%#= post.region.try(:name) %></td>
+    <td><%#= post.imageurl %></td>
+    <td><%#= post.category.try(:name) %></td>
+    <td><%#= post.price %></td>
+    <td><a href="/<%#= post.region.try(:alias) %>/<%#= post.try(:altname) %>" ><%#= post.title %></a></td>
+  </tr>
+<%# end %>
+</table>-->
+<div class="row">
+	<div class="span2">Картинка</div>
+	<div class="span1">Категория</div>
+	<!--<div class="span1">Стоимость</div>-->
+	<div class="span9">Заголовок</div>
+</div>	
+<% @posts.each do |post| %>
+<hr>
+<a href="/<%= post.region.try(:alias) %>/<%= post.try(:altname) %>" >
+<div class="row">
+	
+	<div class="span2 table_image_item"><%= post.region.try(:name) %><img src="<%= post.imageurl %>" class="table_small_image"></div>
+	<div class="span1"><%= post.category.try(:name) %></div>
+	<!--<div class="span1"><%#= post.price %></div>-->
+	<div class="span9"><%= post.title %><br><%= post.price %></div>
+</div>
+</a>
+<% end %>
+
+
+
+</div>	

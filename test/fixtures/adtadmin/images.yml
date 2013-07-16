@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  post_id: 1
+  url: 1
+  order: 1
+  purpose_id: 1
+
+two:
+  post_id: 1
+  url: 1
+  order: 1
+  purpose_id: 1

@@ -1,0 +1,40 @@
+ <div data-spy="affix" data-offset-top="100" id="add_new_post">
+ 	<a href="#myModal" role="button" class="btn btn-large btn-success" data-toggle="modal">Добавить объявление</a>
+
+ </div> 
+
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Добавление объявления</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputphone">Номер телефона</label>
+    <div class="controls">
+      <input type="text" id="inputphone" placeholder="Номер телефона">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputdescription">Описание</label>
+    <div class="controls">
+      <textarea id="inputdescription"></textarea>
+
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+        <button  class="btn" type="button" id="submit_post">Добавить</button>
+    </div>
+  </div>
+</form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+    
+  </div>
+</div>

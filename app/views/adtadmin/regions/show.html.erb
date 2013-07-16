@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_region_path(@region) %> |
+<%= link_to 'Back', regions_path %>
+
+<p>
+  <b>Active:</b>
+  <%= @region.isactive %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @region.name %>
+</p>
+
+<p>
+  <b>Alias:</b>
+  <%= @region.alias %>
+</p>
+
+
+<%= link_to 'Edit', edit_region_path(@region) %> |
+<%= link_to 'Back', regions_path %>

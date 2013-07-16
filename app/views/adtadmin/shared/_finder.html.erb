@@ -1,0 +1,23 @@
+<div class="hero-unit container" id="search_box">
+	<form class="form-inline">
+		<fieldset>
+			Город: 
+			<select  id="select_region">
+				<% Region.all_active.each do |region| %>
+				<option value="<%=region.alias %>"><%=region.name %></option>
+				<% end %>
+			</select>
+			Тип предложения: 
+			<select  id="select_category">
+				<% Type.all_active.each do |type| %>
+				<optgroup label="<%=type.name %> ">
+					<% type.category.all_active.each do |category| %>
+					<option value="<%=category.alias %>"><%=category.name %></option>
+					<% end %>
+				</optgroup>
+				<% end %>		
+			</select>
+			<button  class="btn" type="button" id="search_button">Найти</button>
+		</fieldset>
+	</form>
+</div>

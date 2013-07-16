@@ -1,0 +1,55 @@
+<%= form_for(@agentprofile) do |f| %>
+  <% if @agentprofile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agentprofile.errors.count, "error") %> prohibited this agentprofile from being saved:</h2>
+
+      <ul>
+      <% @agentprofile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="row">
+
+    <div class="span1"><%= f.label :region_id %></div>
+    <div class="span3"><%= f.select(:region_id, Adtadmin::Region.all.collect { |p| [ p.name, p.id ] }, options ={:prompt => "-Выбор региона"})%></div>
+     
+     <div class="span1"><%= f.label :isactive %></div>
+    <div class="span1"><%= f.check_box :isactive %></div>
+
+    <div class="span1"><%= f.label :isdelete %></div>
+    <div class="span1"><%= f.check_box :isdelete %></div>
+
+    <div class="span1"><%= f.label :photourl %></div>
+    <div class="span3"><%= f.text_field :photourl %></div>
+
+  </div>
+
+
+ <div class="row">
+
+    
+    <div class="span1"><%= f.label :name %></div>
+    <div class="span3"><%= f.text_field :name %></div>
+     
+     <div class="span1"><%= f.label :phone %></div>
+    <div class="span3"><%= f.text_field :phone %></div>
+
+    <div class="span1"><%= f.label :adress %></div>
+    <div class="span3"><%= f.text_field :adress %></div>
+
+  </div>
+
+ <div class="row">
+
+  <div class="span1"><%= f.label :description %></div>
+  <div class="span8"><%= f.text_area :description %></div>
+
+</div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

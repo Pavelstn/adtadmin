@@ -1,0 +1,31 @@
+<div class="nail">
+</div>
+<div class="footer">
+  <div class="container" id="footer">
+    <div class="span4 footer_left">
+      <h1 id="h1_footer"><a href="/">adtlist</a></h1> 
+      
+    </div>
+    <div class="span4 footer_midle">
+      <p> По вопросам размещения рекламы<br>  обращаться по тел.<br><b>+7 962 85 37 555</b></p>
+      <%= render "shared/google_analytics" %>
+      <%= render "shared/yandex_metrica" %>
+    </div>
+    <div class="span3 footer_right">
+      <p >
+        <a href="http://compmagic.ru/">&copy; Compmagic 2013</a>
+      <i class="icon-user" id="login_push"></i>
+    </p>
+      <% if user_signed_in? %>
+      <%= link_to('Выход', destroy_user_session_path, :method => 'delete', :class=>'header_login') %>
+      <% else  %>
+      <div id="login_cover">
+      <a class="header_login" href="/users/sign_in">Вход</a>
+      <a class="header_login" href="/users/sign_up">Регистрация</a>
+      </div>
+      
+      <% end %>
+   
+    </div>
+  </div>
+</div>

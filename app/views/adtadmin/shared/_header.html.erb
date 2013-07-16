@@ -1,0 +1,46 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="/">adtlist</a>
+      <div class="btn-group pull-right">
+      </div>  
+      <ul class="nav nav-pills">
+        <li class="dropdown" id="region_list2">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Города<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% Region.all_active.each do |region| %>
+            <li><a  href="/search?region=<%=region.alias %>"><%=region.name %></a></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li><a  href="/news">Новости </a></li>
+        <li><a  href="/about">О нас </a></li>
+         <li><%= link_to('Выход', destroy_user_session_path, :method => 'delete', :class=>'header_login') %></li>
+      </ul>
+      <ul class="nav nav-pills">
+        <% if user_signed_in? %>
+        <% if current_user.role=="admin" %>
+        <li class="dropdown" id="menu2">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Администрирование<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/posts">Объявления</a></li>
+            <li><a href="/categories">Категории</a></li>
+            <li><a href="/agentprofiles">Агенты</a></li>
+            <li><a href="/regions">Города</a></li>
+            <li><a href="/images">Картинки</a></li>
+            <li><a href="/types">Тип предложения</a></li>
+            <li><a href="/accountabilityagents">Закрепление агентов</a></li>
+            <li><a href="/reviews">Заявки и отзывы</a></li>
+            <li><a href="/news_lists">Новости</a></li>
+            <li><a href="/partners">Партнеры</a></li>
+            <li><a href="/stats">Статистика</a></li>
+          </ul>
+        </li>
+        <%end%>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

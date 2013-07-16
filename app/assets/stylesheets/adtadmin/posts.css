@@ -1,0 +1,28 @@
+
+#title_field {
+  width: 780px !important;
+}
+
+#district_field {
+  width: 525px !important;
+}
+
+#price_field, #space_field, #floor_field, #material_field, #plan_field, #year_field, #condition_field, #apartmen_field {
+  width: 120px !important;
+}
+
+#text_field {
+  width: 925px !important;
+  height: 200px !important;
+}
+
+#post_altname {
+  border-color: red;
+  background: red;
+}
+
+.apartmen_select:hover, .plan_select:hover, .material_select:hover {
+  background-color: rgba(255, 255, 255, 0.09804) !important;
+  cursor: pointer;
+}
+

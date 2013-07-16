@@ -1,0 +1,21 @@
+<b>Агенты: </b><br>
+<div itemprop="seller"  itemscope itemtype="http://schema.org/Person">
+<% @agentprofiles.each do |agentprofile| %>
+<b><span itemprop="name"><%=agentprofile.try(:name) %></span></b>
+<span itemprop="telephone"><%=agentprofile.try(:phone) %></span><br>
+<% end %>
+</div>
+<hr>
+<input type="text" placeholder="Номер телефона…" id="phone_input">
+<button class="btn btn-primary" id="call_me" type="button" value="<%= @post.id %>">Оставьте свой телефон, мы вам позвоним</button>
+			
+<hr>
+<%= render "shared/banners/share_buttons" %>
+<hr>
+<% if user_signed_in? %>
+<% if current_user.role=="admin" %>
+<div>
+<%= link_to 'Редактировать', edit_post_path(@post) %>
+</div>
+<% end %>
+<% end %>

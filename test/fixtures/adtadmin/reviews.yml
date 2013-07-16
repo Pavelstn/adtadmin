@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  typereview_id: 1
+  name: MyString
+  phone: MyString
+  adress: MyString
+  description: MyText
+  post_id: 1
+
+two:
+  typereview_id: 1
+  name: MyString
+  phone: MyString
+  adress: MyString
+  description: MyText
+  post_id: 1

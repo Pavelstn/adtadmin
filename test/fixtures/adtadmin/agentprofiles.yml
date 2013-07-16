@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  region_id: 1
+  isactive: false
+  isdelete: false
+  name: MyString
+  phone: MyString
+  adress: MyString
+  description: MyText
+  photourl: MyString
+
+two:
+  region_id: 1
+  isactive: false
+  isdelete: false
+  name: MyString
+  phone: MyString
+  adress: MyString
+  description: MyText
+  photourl: MyString

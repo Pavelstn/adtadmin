@@ -1,0 +1,49 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="row">
+    <div class="span2">Тип предложения:</div>
+    
+     <div class="span3"><%= f.select(:type_id, Adtadmin::Type.all.collect { |p| [ p.name, p.id ] }, options ={:prompt => "-Тип предложения"})%></div>
+
+   <div class="span2">Активно:</div>
+    <div class="span1"><%= f.check_box :isactive %></div>
+    <div class="span1">Удалено:</div>
+    <div class="span1"><%= f.check_box :isdelete, :disabled=>true %></div>
+  </div>
+   <div class="row">
+    <div class="span1"><%= f.label :name %></div>
+    <div class="span3"><%= f.text_field :name %></div>
+
+    <div class="span1"><%= f.label :private_name %></div>
+    <div class="span3"><%= f.text_field :private_name %></div>
+ </div>
+ <div class="row">   
+<div class="span1"><%= f.label :full_name %></div>
+    <div class="span3"><%= f.text_field :full_name %></div>
+
+    <div class="span1"><%= f.label :alias %></div>
+    <div class="span1"><%= f.text_field :alias %></div>
+  </div>
+
+
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

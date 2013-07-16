@@ -1,0 +1,21 @@
+<div class="row" id="items_list">
+  <ul class="thumbnails">
+    <% @posts.each do |post| %>
+    <li class="span6">
+      <a title="<%= post.title %> <%= post.region.try(:name) %> <% if !post.price.blank? %> Цена:<%= post.price %>р.<% end %>" href="/<%= post.region.try(:alias) %>/<%= post.try(:altname) %>" >
+        <div class="row thumbnail3">
+          <div class="span2 image_item" style="background-image: url(<%= post.try(:imageurl) %>);">
+            <div class="region_title"><%= post.region.try(:name) %></div>
+          </div>
+          <!--<div class="span1"><%#= post.price %></div>-->
+          <div class="span4">
+            <%= truncate(post.title, length: 120) %><br>
+            <% if !post.space.blank? %><b>Площадь:</b> <%= post.space %><br><% end %>
+            <% if !post.price.blank? %><b>Стоимость:</b> <%= post.price %><br><% end %>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</div>

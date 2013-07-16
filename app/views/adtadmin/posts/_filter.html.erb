@@ -1,0 +1,18 @@
+<%= form_tag(:controller => "posts", :action => "index") do %>
+<div class="row">
+	<div class="span1">Категория</div>
+	<div class="span3"><%= select_tag "category_id",  options_from_collection_for_select( Adtadmin::Category.all, "id", "private_name", session[:category_id]), :include_blank => true %></div>
+	<div class="span1">Город</div>
+	<div class="span3"><%= select_tag "region_id",  options_from_collection_for_select( Adtadmin::Region.all, "id", "name", session[:region_id]), :include_blank => true %></div>
+</div>
+<div class="row">
+	<div class="span1">Активно:</div>
+	<div class="span1"><%= check_box_tag "isactive", 1, session[:isactive] %></div>
+	<div class="span2">На главной:</div>
+	<div class="span1"><%= check_box_tag "ontop", 1, session[:ontop] %></div>
+	<div class="span1"><%= submit_tag "Выбрать" %></div>
+</div>
+
+<% end %>
+
+

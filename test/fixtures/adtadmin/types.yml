@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  alias: MyString
+  isactive: false
+  isdelete: false
+
+two:
+  name: MyString
+  alias: MyString
+  isactive: false
+  isdelete: false

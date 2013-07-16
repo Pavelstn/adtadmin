@@ -1,0 +1,18 @@
+
+<h3><span itemprop="price">Цена:<% if @post.price %> <%= @post.try(:price) %><% else %>не указана<% end %></span></h3>
+<b>Населенный пункт: </b><%= @post.region.try(:name) %><br>
+<% if !@post.district.blank? %><b>Адрес: </b><%= @post.try(:district) %><br><% end %>
+<span itemprop="description">
+<% if !@post.space.blank? %><b>Площадь:</b> <%= @post.space %> <i>(общая/жилая/кухня)</i><br><% end %>
+			
+<% if !@post.floor.blank? %><b>Этаж: </b><%= @post.floor %><br><% end %>
+<% if !@post.year.blank? %><b>Год постройки: </b><%= @post.year %><br><% end %>
+</span>
+<br>
+<% if !@post.material.blank? %><b>Материал: </b><%= @post.material %><br><% end %>
+<% if !@post.plan.blank? %><b>Планировка: </b><%= @post.plan %><br><% end %>
+<% if !@post.conditionbuilding.blank? %><b>Состояние дома: </b><%= @post.conditionbuilding %><br><% end %>
+<% if !@post.apartmentstate.blank? %><b>Состояние помещения: </b><%= @post.apartmentstate %><br><% end %>
+			
+<% if @post.balcony %><b>Балкон: </b>есть<br><% end %>
+<% if @post.phone %><b>Телефон: </b>есть<br><% end %>

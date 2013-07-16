@@ -1,0 +1,14 @@
+<div class="container">
+<div class="row top_menu" >
+	<!-- <div class="span5 offset6 "  > -->
+	<!--<div  class="span5 offset4 "  > -->
+		<div>
+		<ul class="nav nav-pills">
+			<li > <a class="region_item" href="/"><b>Все</b></a></li>
+			<% Region.all_active.each do |region| %>
+			<li > <a class="region_item" href="/search?region=<%=region.alias %>"><b><%=region.name %></b></a></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+</div>

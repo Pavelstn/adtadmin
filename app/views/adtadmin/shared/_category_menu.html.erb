@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row top_menu" >
+	<!-- <div class="span5 offset6 "  > -->
+	<!--<div  class="span5 offset4 "  > -->
+		<div>
+		<ul class="nav nav-pills">
+			<li > <a class="category_item" href="/"><b>Все</b></a></li>
+			
+			<%# Category.all_active.each do |category| %>
+			
+			<%# end %>
+			<% Type.all_active.each do |type| %>
+			
+			<li><a class="category_item" href="#"><b>| <%=type.name %> :</b></a></li>
+		
+				<% type.category.all_active.each do |category| %>
+				<li><a class="category_item" href="/search?category=<%=category.alias %>"><b><%=category.name %></b></a></li>
+            	<% end %>
+
+			<% end %>
+
+		</ul>
+	</div>
+</div>
+</div>
+<hr>

@@ -1,0 +1,68 @@
+	<div class="row">
+		<div class="span12 "><h1> <%= @post.try(:title) %></h1><hr></div>
+
+	</div> <!-- row -->
+	<div class="row">
+		<div class="span8 ">
+			<!-- Carousel ================================================== -->
+			<div id="myCarousel" class="carousel slide">
+				<div class="carousel-inner">
+					<% i=0 %>
+					<% @post.image.each do |image| %>
+					<div class="item  <% if i==0 %>active <% end %>"  style="background-image: url(<%=image.try(:url) %>)">
+					</div>
+					<% i=i+1 %>
+					<% end %>
+				</div>
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+			<!-- /.carousel -->
+			<!--<hr> -->
+				<h3>Дополнительно:</h3>
+		<%= raw @post.try(:text) %>
+		</div>
+		<div class="span4 ">
+			<h3>Цена:<% if @post.price %> <%= @post.try(:price) %><% else %>не указана<% end %></h3>
+			<b>Населенный пункт: </b><%= @post.region.try(:name) %><br>
+			<% if !@post.district.blank? %><b>Адрес: </b><%= @post.try(:district) %><br><% end %>
+			
+			<br>
+			<% if !@post.space.blank? %><b>Площадь:</b> <%= @post.space %> <i>(общая/жилая/кухня)</i><br><% end %>
+			
+			<% if !@post.floor.blank? %><b>Этаж: </b><%= @post.floor %><br><% end %>
+			<% if !@post.year.blank? %><b>Год постройки: </b><%= @post.year %><br><% end %>
+			<br>
+			<% if !@post.material.blank? %><b>Материал: </b><%= @post.material %><br><% end %>
+			<% if !@post.plan.blank? %><b>Планировка: </b><%= @post.plan %><br><% end %>
+			<% if !@post.conditionbuilding.blank? %><b>Состояние дома: </b><%= @post.conditionbuilding %><br><% end %>
+			<% if !@post.apartmentstate.blank? %><b>Состояние помещения: </b><%= @post.apartmentstate %><br><% end %>
+			
+			<% if @post.balcony %><b>Балкон: </b>есть<br><% end %>
+			<% if @post.phone %><b>Телефон: </b>есть<br><% end %>
+			<hr>
+			<b>Агенты: </b><br>
+				<% @agentprofiles.each do |agentprofile| %>
+				<b><%=agentprofile.try(:name) %> </b>
+				<%=agentprofile.try(:phone) %><br>
+				<% end %>
+				<hr>
+					<input type="text" placeholder="Номер телефона…" id="phone_input">
+			<button class="btn btn-primary" id="call_me" type="button" value="<%= @post.id %>">Оставьте свой телефон, мы вам позвоним</button>
+			
+			<hr>
+			<%= render "shared/banners/share_buttons" %>
+			<hr>
+			<% if user_signed_in? %>
+			<% if current_user.role=="admin" %>
+			<div>
+				<%= link_to 'Редактировать', edit_post_path(@post) %>
+			</div>
+			<% end %>
+			<% end %>
+
+
+
+		</div>
+	</div> <!-- row -->
+

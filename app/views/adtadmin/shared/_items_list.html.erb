@@ -1,0 +1,21 @@
+<div class="row" id="items_list">
+  <ul class="thumbnails">
+    <% @posts.each do |post| %>
+    <li class="span4 thumbnail2">
+      <a href="/<%= post.region.try(:alias) %>/<%= post.try(:altname) %>" >
+
+          <!--<div class="image_thumb"  style="background-image: url(<%#= post.image.first.try(:url) %>);">-->
+          <div class="image_thumb"  style="background-image: url(<%= post.try(:imageurl) %>);">
+            <img data-src="holder.js/300x200" alt="">
+          </div>
+          <div class="thumb_text">
+            <h4><%= truncate(post.title, length: 100) %></h4>
+            <p>Стоимость <%= post.price %></p>
+          </div>
+
+      </a>
+
+    </li>
+    <% end %>
+  </ul>
+</div>

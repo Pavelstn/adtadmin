@@ -1,0 +1,47 @@
+<h1>Список объявлений</h1>
+<%#= form_tag(:controller => "posts", :action => "index") do %>
+<%#= select(:form,:category_id,  Category.all.collect {|p| [ p.path.map{|i| i.name.to_s}, p.name, p.id ] }, {:include_blank => 'Категория-'})%>
+<%#= select( :form,:category_id, Category.all.collect { |p| [p.name, p.id] }, {:include_blank => 'Категория-'}) %>
+<%#= select( :form,:region_id, Region.all.collect { |p| [p.name, p.id] }, {:include_blank => 'Город-'}) %>
+<%#= submit_tag("Выбрать") %>
+<%# end %>
+
+
+<%= render 'filter' %>
+
+<%= link_to 'Новое объявление', new_post_path,  :class => "btn btn-success" %>
+
+<table >
+  <tr>
+    <th>Регион</th>
+    <th>Категория</th>
+    <th>altname</th>
+    <th>Заголовок</th>
+    <th>Стоимость</th>
+    <th>Активно</th>
+    <th>На главной</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.region.try(:name) %></td>
+    <td><%= post.category.try(:name) %></td>
+    <td><%= post.altname %></td>
+    <td><%= post.title %></td>
+    <td><%= post.price %></td>
+    <td><%= post.isactive %></td>
+    <td><%= post.ontop %></td>
+    <td><%= link_to 'Показать', post,:class => "btn btn-primary" %></td>
+    <td><%= link_to 'Ред.', edit_post_path(post),:class => "btn btn-warning" %></td>
+    <td><%= link_to  post, confirm: 'Че правда?' , :class=>"btn  btn-danger", method: :delete  do  %><i class="icon-remove-circle"></i>  <%end%> </td>
+
+  </tr>
+<% end %>
+</table>
+<%#= will_paginate @posts %>
+<br />
+
+<%= link_to 'Новое объявление', new_post_path,  :class => "btn btn-success" %>
